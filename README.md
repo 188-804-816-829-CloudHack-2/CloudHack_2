@@ -68,13 +68,3 @@ In this project, we’ll be taking a look at building and deploying a microservi
 
 8. Run the docker-compose files, send data to the producer and monitor the consumers to ensure they’re working properly. You can view the output by checking docker logs. In case you're using Python, there might be additional steps or flags you need to provide for the logs to show up, please refer to [this](https://stackoverflow.com/questions/29663459/python-app-does-not-print-anything-when-running-detached-in-docker)
 
-
-## Some Notes To Consider
-1. When you build the docker-compose file, and run the entire microservice from there, sometimes your RabbitMQ consumers might fail because the RabbitMQ server is still booting while your program tries to connect immediately. Therefore, try adding a delay of 1 minute or so in your code, before the rest of the program starts running. This will give the RabbitMQ server and database you're using time to boot, before your code tries to interact with them. 
-
-2. Ensure the values like Consumer Name and Server URL being passed to the consumers are read from the system environment variables, and not hard-coded.
-
-3. The `app` folder contains the recommended file structure for the project. While you're free to setup the project in any way you like, we recommend that you follow the structure of the `app` folder.
-
-
-![Services Setup](ServicesSetup.png)
